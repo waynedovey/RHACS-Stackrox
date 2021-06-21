@@ -1,2 +1,1 @@
 # RHACS-Stackrox
-# RHACS-Stackrox
