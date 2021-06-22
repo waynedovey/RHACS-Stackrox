@@ -8,6 +8,9 @@ helm repo update
 
 helm install -n stackrox --create-namespace stackrox-central-services rhacs/central-services --set imagePullSecrets.allowNone=true --set central.exposure.route.enabled=true
 
+export ROX_API_TOKEN=<CHANGEME>
+export ROX_CENTRAL_ADDRESS=<CHANGEME>
+
 roxctl -e "$ROX_CENTRAL_ADDRESS:443" central init-bundles generate cluster-init-bundle-name --output cluster-init-bundle.yaml
 
 helm install -n stackrox --create-namespace stackrox-secured-cluster-services rhacs/secured-cluster-services -f cluster-init-bundle.yaml \
